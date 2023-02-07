@@ -46,7 +46,7 @@ class _RecipeScreenState extends State<RecipeScreen>{
           ),
           SizedBox(height: 10),
           Text(
-            'Title: ${widget.recipe?.title.toString()}',
+            'Title: ${widget.recipe.title.toString()}',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
@@ -54,7 +54,7 @@ class _RecipeScreenState extends State<RecipeScreen>{
           ),
           SizedBox(height: 10),
           Text(
-            'Ready in minutes: ${widget.recipe?.readyInMinutes.toString()} min',
+            'Ready in minutes: ${widget.recipe.readyInMinutes.toString()} min',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
@@ -62,7 +62,7 @@ class _RecipeScreenState extends State<RecipeScreen>{
           ),
           SizedBox(height: 10),
           Text(
-            'Servings: ${widget.recipe?.servings.toString()}',
+            'Servings: ${widget.recipe.servings.toString()}',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
@@ -146,13 +146,13 @@ class _RecipeScreenState extends State<RecipeScreen>{
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView.builder(
-          itemCount: 1 + widget.recipe!.ingredients!.length,
+          itemCount: 1 + widget.recipe.ingredients.length,
           itemBuilder: (BuildContext contex, int index){
             if(index == 0){
               return _buildTotalInfoCard();
             }
 
-            Ingredient ingredient = widget.recipe!.ingredients![index - 1];
+            Ingredient ingredient = widget.recipe.ingredients[index - 1];
             return _buildIngredientCard(ingredient, index - 1);
           }
       ),

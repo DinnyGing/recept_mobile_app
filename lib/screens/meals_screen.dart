@@ -43,14 +43,14 @@ class _MealScreenState extends State<MealsScreen>{
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Calories: ${widget.mealPlan?.calories.toString()} cal',
+                'Calories: ${widget.mealPlan.calories.toString()} cal',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
-                'Fat: ${widget.mealPlan?.fat.toString()} g',
+                'Fat: ${widget.mealPlan.fat.toString()} g',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -63,14 +63,14 @@ class _MealScreenState extends State<MealsScreen>{
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Protein: ${widget.mealPlan?.protein.toString()} g',
+                'Protein: ${widget.mealPlan.protein.toString()} g',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
-                'Carb: ${widget.mealPlan?.carbs.toString()} cal',
+                'Carb: ${widget.mealPlan.carbs.toString()} cal',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -171,12 +171,12 @@ class _MealScreenState extends State<MealsScreen>{
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: ListView.builder(
-        itemCount: 1 + widget.mealPlan!.meals!.length,
+        itemCount: 1 + widget.mealPlan.meals.length,
         itemBuilder: (BuildContext contex, int index){
         if(index == 0){
           return _buildTotalNutrientsCard();
         }
-        Meal meal = widget.mealPlan!.meals![index - 1];
+        Meal meal = widget.mealPlan.meals[index - 1];
           return _buildMealCard(meal, index - 1);
         }
       )
